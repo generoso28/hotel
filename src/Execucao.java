@@ -15,12 +15,14 @@ public class Execucao {
         // Set the value of the quantidadeQuartos attribute of hotel
         hotel.setQuantidadeQuartos(10);
         // Create a new instance of TipoQuarto
+
         TipoQuarto tipoQuarto = new TipoQuarto();
         // Set the value of the tipoQuarto attribute of tipoQuarto
         tipoQuarto.setTipoQuarto("Luxo");
         // Set the value of the tarifa attribute of tipoQuarto
         tipoQuarto.setTarifa(100.0);
         // Create a new instance of Cliente
+
         Cliente cliente = new Cliente();
         // Set the value of the nome attribute of cliente
         cliente.setNome("João");
@@ -33,6 +35,7 @@ public class Execucao {
         // Set the value of the quantidadeReservas attribute of cliente
         cliente.setQuantidadeReservas(0);
         // Create a new instance of Funcionario
+
         Funcionario funcionario = new Funcionario();
         // Set the value of the nome attribute of funcionario
         funcionario.setNome("Maria");
@@ -45,13 +48,15 @@ public class Execucao {
         // Set the value of the funcao attribute of funcionario
         funcionario.setFuncao("Recepcionista");
         // Create a new instance of Quarto
+
         Quarto quarto = new Quarto();
         // Set the value of the tipo attribute of quarto
         quarto.setTipo(tipoQuarto);
         // Set the value of the numero attribute of quarto
         quarto.setNumero(352);
         // Create a new instance of Reserva
-        Reserva reserva = new Reserva();
+
+        Reserva reserva = new Reserva(100.0, 5);
         // Set the value of the formaPagamento attribute of reserva
         reserva.setFormaPagamento(new SistemaPagamento());
         // Set the value of the cliente attribute of reserva
@@ -61,16 +66,21 @@ public class Execucao {
         // Set the value of the quarto attribute of reserva
         reserva.setQuarto(quarto);
         // Set the value of the valor attribute of reserva
-        reserva.setValor(100.0);
+        //reserva.setValor(100.0);
         // Set the value of the hotel attribute of quarto
         quarto.setHotel(hotel);
         //print all content in object reserva
-        System.out.println(reserva.getFormaPagamento());
-        System.out.println(reserva.getCliente().getNome());
-        System.out.println(reserva.getFuncionario().getNome());
-        System.out.println(reserva.getQuarto().getNumero());
-        System.out.println(reserva.getValor());
-        System.out.println(reserva.getQuarto().getHotel().getNome());
+
+        System.out.println("----------------------------------------------------");
+        System.out.println("\nDados da reserva: ");
+        System.out.println("Reserva número: "+reserva.getIdReserva());
+        System.out.println("Forma de pagamento: "+reserva.getFormaPagamento());
+        System.out.println("Cliente: "+reserva.getCliente().getNome());
+        System.out.println("Funcionário: "+reserva.getFuncionario().getNome());
+        System.out.println("Quanto nº: "+reserva.getQuarto().getNumero());
+        System.out.println("Valor: "+reserva.getValorDiaria());
+        System.out.println("Classificação: "+reserva.getQuarto().getHotel().getNome());
+        System.out.println("Valor total da reserva: "+reserva.ValorReserva(reserva.getValorDiaria(), reserva.getQtdDias()));
     }
 
 }

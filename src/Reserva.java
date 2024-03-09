@@ -3,10 +3,18 @@ public class Reserva {
     private Cliente cliente = new Cliente();
     private Funcionario funcionario = new Funcionario();
     private Quarto quarto = new Quarto();
-    private double valor;
+    private int idReserva, totalReservas;
+    private double valorDiaria, valorTotal;
+
+    private int qtdDias;
 
 
-    public Reserva() {
+    public Reserva(double valorDiaria, int qtdDias) {
+        System.out.println("Instanciando uma reserva!");
+        totalReservas++;
+        idReserva = totalReservas;
+        this.valorDiaria = valorDiaria;
+        this.qtdDias = qtdDias;
     }
 
     public SistemaPagamento getFormaPagamento() {
@@ -39,14 +47,38 @@ public class Reserva {
 
     public void setQuarto(Quarto quarto) {
         this.quarto = quarto;
-        valor = this.quarto.getTipo().getTarifa();
+        valorDiaria = this.quarto.getTipo().getTarifa();
     }
 
-    public double getValor() {
-        return valor;
+    public int getIdReserva() {
+        return idReserva;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setIdReserva(int idReserva) {
+        this.idReserva = idReserva;
+    }
+
+    public double getValorDiaria() {
+        return valorDiaria;
+    }
+
+    public void setValorDiaria(double valor) {
+        this.valorDiaria = valor;
+    }
+
+    public int getQtdDias() {
+        return qtdDias;
+    }
+
+    public void setQtdDias(int qtdDias) {
+        this.qtdDias = qtdDias;
+    }
+
+    public double ValorReserva(double valorDiaria, int qtdDias){
+        this.valorTotal = this.valorDiaria * this.qtdDias;
+        return valorTotal;
     }
 }
+
+
+
