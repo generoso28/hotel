@@ -1,12 +1,16 @@
 public class Reserva {
-    private SistemaPagamento formaPagamento = new SistemaPagamento();
-    private Cliente cliente = new Cliente();
-    private Funcionario funcionario = new Funcionario();
-    private Quarto quarto = new Quarto();
+    private SistemaPagamento formaPagamento;
+    private Cliente cliente;
+    private Funcionario funcionario;
+    private Quarto quarto;
     private double valor;
 
-
-    public Reserva() {
+    public Reserva(SistemaPagamento formaPagamento, Cliente cliente, Funcionario funcionario, Quarto quarto, double valor) {
+        this.formaPagamento = formaPagamento;
+        this.cliente = cliente;
+        this.funcionario = funcionario;
+        this.quarto = quarto;
+        this.valor = valor;
     }
 
     public SistemaPagamento getFormaPagamento() {

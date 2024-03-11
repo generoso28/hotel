@@ -6,6 +6,14 @@ public class Hotel {
     private String cnpj;
     private int quantidadeQuartos;
 
+public Hotel(String nome, String endereco, String telefone, String email, String cnpj, int quantidadeQuartos) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.email = email;
+        this.cnpj = cnpj;
+        this.quantidadeQuartos = quantidadeQuartos;
+    }
     public String getNome() {
         return nome;
     }

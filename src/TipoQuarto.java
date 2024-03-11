@@ -1,6 +1,10 @@
 public class TipoQuarto {
     private String tipoQuarto;
     private double tarifa;
+    public TipoQuarto(String tipoQuarto, double tarifa) {
+        this.tipoQuarto = tipoQuarto;
+        this.tarifa = tarifa;
+    }
 
     public String getTipoQuarto() {
         return tipoQuarto;

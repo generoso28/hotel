@@ -1,8 +1,14 @@
 public class Quarto {
     private int numero;
-    private TipoQuarto tipo = new TipoQuarto();
+    private TipoQuarto tipo;
     private boolean isOcupado;
-    private Hotel hotel = new Hotel();
+    private Hotel hotel;
+    public Quarto(int numero, TipoQuarto tipo, boolean isOcupado, Hotel hotel) {
+        this.numero = numero;
+        this.tipo = tipo;
+        this.isOcupado = isOcupado;
+        this.hotel = hotel;
+    }
 
     public int getNumero() {
         return numero;
