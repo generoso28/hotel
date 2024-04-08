@@ -1,4 +1,6 @@
-public class Reserva {
+import java.util.Scanner;
+
+public class Reserva implements Pagamento {
     private SistemaPagamento formaPagamento;
     private Cliente cliente;
     private Funcionario funcionario;
@@ -6,11 +8,13 @@ public class Reserva {
     private double valor;
 
     public Reserva(SistemaPagamento formaPagamento, Cliente cliente, Funcionario funcionario, Quarto quarto, double valor) {
-        this.formaPagamento = formaPagamento;
+        pagar(formaPagamento);
         this.cliente = cliente;
         this.funcionario = funcionario;
         this.quarto = quarto;
         this.valor = valor;
+    }
+    public Reserva() {
     }
 
     public SistemaPagamento getFormaPagamento() {
@@ -52,5 +56,34 @@ public class Reserva {
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+
+    @Override
+    public void pagar(SistemaPagamento formaPagamento) {
+        System.out.println("A forma de pagamento será: " + formaPagamento.getMetodoPagamento() + "? S/N");
+        Scanner scanner = new Scanner(System.in);
+        String resposta = scanner.nextLine();
+        if (resposta.equals("S") || resposta.equals("s")) {
+            System.out.println("Pagamento efetuado com sucesso!");
+            this.formaPagamento = formaPagamento;
+        } else {
+            cancelar();
+        }
+
+    }
+
+    @Override
+    public void cancelar() {
+        System.out.println("Pagamento cancelado!");
+        System.out.println("Deseja alterar a forma de pagamento? S/N");
+        Scanner scanner = new Scanner(System.in);
+        String resposta = scanner.nextLine();
+        if (resposta.equals("S") || resposta.equals("s")) {
+            System.out.println("Digite a nova forma de pagamento: ");
+            String novoMetodoPagamento = scanner.nextLine();
+            SistemaPagamento novoSistemaPagamento = new SistemaPagamento(novoMetodoPagamento);
+            pagar(novoSistemaPagamento);
+        }
     }
 }
